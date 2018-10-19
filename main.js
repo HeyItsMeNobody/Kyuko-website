@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var authRoute = require('./auth-route');
+var otherRoutes = require('./other-routes');
 var passport_setup = require('./config/passport-setup.js');
 var mysql = require('mysql');
 var keys = require('./config/keys.json');
@@ -21,6 +22,7 @@ app.use(passport.session());
 
 // Setting up routes
 app.use('/auth', authRoute);
+app.use('/', otherRoutes)
 
 // Create home route
 app.get('/', (req, res) => {

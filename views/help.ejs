@@ -1,0 +1,118 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Homepage</title>
+        <style>
+            ul {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+            
+            li {
+                float: left;
+            }
+            
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            
+            li a:hover {
+                background-color: #111;
+            }
+            .container {
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            .card {
+                position: relative;
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                flex-direction: column;
+                min-width: 0;
+                word-wrap: break-word;
+                background-color: #fff;
+                background-clip: border-box;
+                border: 1px solid rgba(0,0,0,.125);
+                border-radius: .25rem;
+            }
+            .card-header {
+                font-size: 1.5rem;
+            }
+            code {
+                color: #e83e8c;
+                word-break: break-word;
+            }
+            .arg {
+                color: #031eff;
+                background-color: #e0e0e0;
+            }
+            .opt-arg {
+                color: rgba(40,189,61,.6)!important;
+                background-color: #e0e0e0;
+            }
+        </style>
+    </head>
+    <body>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <nav>
+            <ul>
+                <li><a href="/">Homepage</a></li>
+                <li><a href="/help">Commands</a></li>
+                <% if (!user) {%>
+                <li><a href="/auth/discord">Login with discord</a></li>
+                <%} else {%>
+                <li><a href="/auth/logout">Logout</a></li>
+                <%}%>
+            </ul>
+        </nav>
+        <main>
+            <div class="container">
+                <p>List of all commands for Kyuko<br/>
+                Required arguments look like <span class="arg">this</span><br/>
+                Optional arguments look like <span class="opt-arg">this</span></p>
+                <div class="card">
+                    <div class="card-header">Misc</div>
+                    <div class="card-main">
+                        <div class="main-description"><code>k!say</code> <span class="arg">message</span> make the bot say something!<br/>
+                        <code>k!ping</code> says pong back<br/>
+                        <code>k!help</code> brings you here</div>
+                    </div>
+                </div>
+                <br/>
+                <div class="card">
+                    <div class="card-header">Admin commands</div>
+                    <div class="card-main">
+                        <div class="main-description"><code>k!saychannel</code> <span class="arg">channelid message</span> makes the bot say something in a channel<br/>
+                        <code>k!setwelcome</code> <span class="arg">message</span> or <span class="arg">reset</span> set the welcome message (to mention user use user_mention)<br/>
+                        <code>k!setleave</code> <span class="arg">message</span> or <span class="arg">reset</span> set the leave message (to mention user use user_mention)<br/>
+                        <code>k!kick</code> <span class="arg">user</span> <span class="opt-arg">reason</span><br/>
+                        <code>k!ban</code> <span class="arg">user</span> <span class="opt-arg">reason</span></div>
+                    </div>
+                </div>
+                <br/>
+                <div class="card">
+                    <div class="card-header">Bot owner commands</div>
+                    <div class="card-main">
+                        <div class="main-description"><code>k!whitelist</code> <span class="arg">serverid servername</span> or <span class="arg">DELETE serverid</span> whitelists a server<br/>
+                            <code>k!setactivity</code> <span class="arg">type message</span> sets the bots activity</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </body>
+</html>
