@@ -33,20 +33,20 @@
         </style>
     </head>
     <body>
-        
-<nav>
-    <ul>
-        <li><a href="/">Homepage</a></li>
-        <% if (!user) {%>
-        <li><a href="/auth/discord">Login with discord</a></li>
-        <%} else {%>
-        <li><a href="/auth/logout">Logout</a></li>
-        <%}%>
-    </ul>
-</nav>
-<main>
-    <p>Trying out express.js and ejs</p>
-</main>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <nav>
+            <ul>
+                <li><a href="/">Homepage</a></li>
+                <% if (!user) {%>
+                <li><a href="/auth/discord">Login with discord</a></li>
+                <%} else {%>
+                <li><a href="/auth/logout">Logout</a></li>
+                <%}%>
+            </ul>
+        </nav>
+        <main>
+            <p>Trying out express.js and ejs</p>
+        </main>
 
     </body>
 </html>
