@@ -27,6 +27,6 @@ app.get('/', (req, res) => {
     res.render('home', {user: req.user});
 });
 
-app.listen(8256, () => {
-    console.log(`Listening at port 8256!`);
+app.listen(9999, () => {
+    console.log(`Listening at port 9999!`);
 });
