@@ -48,7 +48,7 @@
                 <li><a href="/commands">Commands</a></li>
                 <% if (!user) {%>
                 <li><a href="/auth/discord">Login with discord</a></li>
-                <%} else { console.log(user.username) %>
+                <%} else {%>
                 <li><a href="/auth/logout">Logout</a></li>
                 <%}%>
             </ul>
@@ -59,7 +59,7 @@
         <% if (!user) {} else {%>
         <div class="sticky">
             <img src="<%= user.avatarurl %>" class="stickyimg">
-            <p><%= user.username %></p>
+            <p><%= user.username %>#<%= user.discriminator %></p>
         </div>
         <%}%>
 

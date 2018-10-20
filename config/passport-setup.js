@@ -36,7 +36,7 @@ passport.use(new DiscordStrategy( {
                 var sqldelete = `DELETE FROM websiteusers WHERE id = ${profile.id};`
                 conn.query(sqldelete, function (err, result) {
                     if (err) console.log(err);
-                    var sqlinsert2 = `INSERT INTO websiteusers VALUES (${profile.id}, "${profile.username}", "https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.jpg?size=1024")`
+                    var sqlinsert2 = `INSERT INTO websiteusers VALUES (${profile.id}, "${profile.username}", "${profile.discriminator}", "https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.jpg?size=1024")`
                     conn.query(sqlinsert2, function (err, result) {
                         if (err) console.log(err);
                         console.log(`There already was a user with ${profile.id} so deleted and added again.`)
@@ -44,13 +44,14 @@ passport.use(new DiscordStrategy( {
                 })
             }
             else {
-                var sqlinsert = `INSERT INTO websiteusers VALUES (${profile.id}, "${profile.username}", "https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.jpg?size=1024")`
+                var sqlinsert = `INSERT INTO websiteusers VALUES (${profile.id}, "${profile.username}", "${profile.discriminator}", "https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.jpg?size=1024")`
                 conn.query(sqlinsert, function (err, result) {
                     if (err) console.log(err);
                     console.log(`No user found with ${profile.id} so added it.`)
                 })
             }
         })
+        console.log(profile);
         conn.release();
     });
     done(null, profile)

@@ -124,7 +124,7 @@
         <% if (!user) {} else {%>
             <div class="sticky">
                 <img src="<%= user.avatarurl %>" class="stickyimg">
-                <p><%= user.username %></p>
+                <p><%= user.username %>#<%= user.discriminator %></p>
             </div>
         <%}%>
 
