@@ -64,6 +64,14 @@
                 color: rgba(40,189,61,.6)!important;
                 background-color: #e0e0e0;
             }
+            .sticky {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+            }
+            .stickyimg {
+                border-radius: 50%;
+            }
         </style>
     </head>
     <body>
@@ -113,6 +121,12 @@
                 </div>
             </div>
         </main>
+        <% if (!user) {} else {%>
+            <div class="sticky">
+                <img src="<%= user.avatarurl %>" class="stickyimg">
+                <p><%= user.username %></p>
+            </div>
+        <%}%>
 
     </body>
 </html>
