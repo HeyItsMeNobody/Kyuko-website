@@ -4,15 +4,15 @@ const keys = require('./keys.json');
 const getConnection = require('../mysqlPool.js');
 
 passport.serializeUser((user, done) => {
-    done(null, user.id)
+    done(null, user)
 })
-passport.deserializeUser((id, done) => {
+passport.deserializeUser((user, done) => {
     getConnection(function(err, conn) {
-        var sqlselect = `SELECT * FROM websiteusers WHERE id = ${id};`
+        var sqlselect = `SELECT * FROM websiteusers WHERE id = ${user.id};`
         conn.query(sqlselect, function (err, result) {
             if(err) console.log(err);
             if (result.length > 0) {
-                done(null, result[0].id)
+                done(null, result[0])
             }
         });
         conn.release();
